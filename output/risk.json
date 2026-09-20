@@ -1,0 +1,58 @@
+[
+  {
+    "entity": "UPI_003",
+    "risk_score": 50,
+    "risk_level": "MEDIUM",
+    "alert_count": 2,
+    "alert_types": [
+      "RAPID_ONWARD_TRANSFER",
+      "HIGH_TRANSACTION_VELOCITY"
+    ],
+    "evidence": [
+      "transactions.csv:3",
+      "transactions.csv:4",
+      "transactions.csv:3",
+      "transactions.csv:4",
+      "transactions.csv:5"
+    ]
+  },
+  {
+    "entity": "UPI_001",
+    "risk_score": 30,
+    "risk_level": "LOW",
+    "alert_count": 1,
+    "alert_types": [
+      "RAPID_ONWARD_TRANSFER"
+    ],
+    "evidence": [
+      "transactions.csv:1",
+      "transactions.csv:2"
+    ]
+  },
+  {
+    "entity": "UPI_002",
+    "risk_score": 30,
+    "risk_level": "LOW",
+    "alert_count": 1,
+    "alert_types": [
+      "RAPID_ONWARD_TRANSFER"
+    ],
+    "evidence": [
+      "transactions.csv:2",
+      "transactions.csv:3"
+    ]
+  },
+  {
+    "entity": "IMEI_001",
+    "risk_score": 15,
+    "risk_level": "LOW",
+    "alert_count": 1,
+    "alert_types": [
+      "SHARED_DEVICE"
+    ],
+    "evidence": [
+      "devices.csv:2",
+      "devices.csv:3"
+    ]
+  }
+]

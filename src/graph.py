@@ -112,6 +112,40 @@ def find_path(graph, source, target):
     except nx.NodeNotFound:
         return []
 
+def get_entity(graph, entity_id):
+    """Return basic information about an entity."""
+    if entity_id not in graph:
+        return None
+
+    attributes = graph.nodes[entity_id]
+
+    return {
+        "id": entity_id,
+        "type": attributes.get("type")
+    }
+
+def get_edge_details(graph, source, target):
+    """Return all relationships between two entities."""
+    if source not in graph or target not in graph:
+        return []
+
+    relationships = []
+
+    edge_data = graph.get_edge_data(source, target)
+
+    if not edge_data:
+        return []
+
+    for attributes in edge_data.values():
+        relationships.append({
+            "type": attributes.get("type"),
+            "amount": attributes.get("amount"),
+            "timestamp": attributes.get("timestamp"),
+            "evidence": attributes.get("evidence")
+        })
+
+    return relationships
+
 
 def main():
     relationships = load_relationships()
