@@ -1079,61 +1079,61 @@ for index, risk in enumerate(risk_rows):
 
     st.markdown("</div>", unsafe_allow_html=True)
 
-    st.markdown("### Evidence Source Summary")
+st.markdown("### Evidence Source Summary")
 
-    st.markdown("### Entity Correlation")
+st.markdown("### Entity Correlation")
 
-    if entity_links:
+if entity_links:
 
-        correlation_df = pd.DataFrame(entity_links)
+    correlation_df = pd.DataFrame(entity_links)
 
-        st.dataframe(
-            correlation_df[
-                [
-                    "source_entity",
-                    "source_type",
-                    "relationship",
-                    "target_entity",
-                    "target_type",
-                    "evidence_source",
-                    "evidence_id"
-                ]
-            ],
-            use_container_width=True,
-            hide_index=True
-        )
+    st.dataframe(
+        correlation_df[
+            [
+                "source_entity",
+                "source_type",
+                "relationship",
+                "target_entity",
+                "target_type",
+                "evidence_source",
+                "evidence_id"
+            ]
+    ],
+        use_container_width=True,
+        hide_index=True
+    )
 
-    else:
-
-        st.info(
-            "No cross-source entity relationships detected."
-        )
-
-    source_col1, source_col2, source_col3 = st.columns(3)
-
-    with source_col1:
-        st.metric(
-            "Financial / UPI Records",
-            len(transactions_df)
-        )
-
-    with source_col2:
-        st.metric(
-            "CDR Records",
-            len(cdr_df)
-        )
-
-    with source_col3:
-        st.metric(
-            "IPDR Records",
-            len(ipdr_df)
-        )
+else:
 
     st.info(
-        "No evidence has been analyzed yet. "
-        "The next stage will connect the mock CDR, IPDR, "
-        "device and financial datasets."
+        "No cross-source entity relationships detected."
     )
+
+source_col1, source_col2, source_col3 = st.columns(3)
+
+with source_col1:
+    st.metric(
+        "Financial / UPI Records",
+        len(transactions_df)
+    )
+
+with source_col2:
+    st.metric(
+        "CDR Records",
+        len(cdr_df)
+    )
+
+with source_col3:
+    st.metric(
+        "IPDR Records",
+        len(ipdr_df)
+    )
+
+st.info(
+    "No evidence has been analyzed yet. "
+    "The next stage will connect the mock CDR, IPDR, "
+    "device and financial datasets."
+)
 
 # ============================================================
 # NETWORK TAB
